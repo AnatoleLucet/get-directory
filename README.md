@@ -1,4 +1,4 @@
-# get-directory
+# @anatole-lucet/get-directory
 
 Package that permit you to import every directory and files in a given path.
 
@@ -23,7 +23,7 @@ Package that permit you to import every directory and files in a given path.
 ```Javascript
 // controllers/index.js
 
-module.exports = require('get-directory')(__dirname);
+module.exports = require('@anatole-lucet/get-directory')(__dirname);
 ```
 
 ```Javascript
