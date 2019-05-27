@@ -1,0 +1,28 @@
+{
+  "name": "get-directory",
+  "version": "1.0.0",
+  "description": "Package that permit you to import every directory and files in a given path.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnatoleLucet/get-directory.git"
+  },
+  "keywords": [
+    "directory",
+    "require",
+    "get",
+    "import",
+    "use",
+    "path",
+    "read"
+  ],
+  "author": "AnatoleLucet",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AnatoleLucet/get-directory/issues"
+  },
+  "homepage": "https://github.com/AnatoleLucet/get-directory#readme"
+}
