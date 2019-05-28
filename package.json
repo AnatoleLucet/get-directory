@@ -1,6 +1,6 @@
 {
   "name": "@anatole-lucet/get-directory",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Package that permit you to import every directory and files in a given path.",
   "main": "index.js",
   "scripts": {

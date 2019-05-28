@@ -18,13 +18,16 @@ module.exports = (_module, config = initialConfig) => {
         withFileTypes: true
       })
       .filter(file => {
-        // Return if file.name is in the blacklist.
-        if (blacklist.find(dlFile => dlFile === file.name)) return;
-
-        // Return if file is not a directory and don't have a valid extension.
         if (
-          !extensions.find(type => type === `.${file.name.split('.').pop()}`) &&
-          !file.isDirectory()
+          // Return if file.name is in the blacklist.
+          blacklist.find(dlFile => dlFile === file.name) ||
+          // Return if file is not a directory and don't have a valid extension.
+          (!extensions.find(
+            type => type === `.${file.name.split('.').pop()}`
+          ) &&
+            !file.isDirectory()) ||
+          // Return if this is the file were this function as been called.
+          path.join(basedir, file.name) === _module.filename
         )
           return;
 
@@ -36,12 +39,9 @@ module.exports = (_module, config = initialConfig) => {
     return files.reduce((acc, file) => {
       const { name } = file;
 
-      // Don't import the file were this function as been called.
-      if (path.join(basedir, name) === _module.filename) return { ...acc };
-
       // If file is a directory, start this function again with a new path.
       if (file.isDirectory())
-        return { ...acc, [name]: addFile(path.join(dir, name), config) };
+        return { ...acc, [name]: addFile(path.join(dir, name)) };
 
       // Remove the file extension if the extension is in config.extension.
       const finalName = name
