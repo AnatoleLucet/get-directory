@@ -26,9 +26,7 @@ module.exports = (_module, config = initialConfig) => {
           // Return if file.name is in the blacklist.
           blacklist.find(dlFile => dlFile === file.name) ||
           // Return if file is not a directory and don't have a valid extension.
-          (!extensions.find(
-            type => type === `.${file.name.split('.').pop()}`
-          ) &&
+          (!extensions.find(type => type === path.extname(file.name)) &&
             !file.isDirectory()) ||
           // Return if this is the file were this function as been called.
           path.join(basedir, file.name) === _module.filename
@@ -51,7 +49,7 @@ module.exports = (_module, config = initialConfig) => {
       const finalName = name
         .split(
           new RegExp(
-            `${['.js', '.json'].reduce(
+            `${extensions.reduce(
               (acc, curr) => (acc ? `${acc}|${curr}` : curr),
               ''
             )}$`
