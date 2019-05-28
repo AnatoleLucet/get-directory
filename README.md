@@ -1,8 +1,14 @@
-# get-directory
+# @anatole-lucet/get-directory
 
 Package that permit you to import every directory and files in a given path.
 
 ---
+
+## Installation
+
+```
+npm i -s @anatole-lucet/get-directory
+```
 
 ## Usage
 
@@ -25,7 +31,7 @@ Simple exemple :
 ```Javascript
 // controllers/index.js
 
-module.exports = require('get-directory')(module); // give the global variable : 'module'
+module.exports = require('@anatole-lucet/get-directory')(module);
 ```
 
 ```Javascript
