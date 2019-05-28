@@ -71,6 +71,12 @@ You can give some options in an object.
 require('get-directory')(module, { extensions: ['.js', '.ts'] }); // default is ['.js']
 ```
 
+### Blacklist
+
+```Javascript
+require('get-directory')(module, { blacklist: ['register.js', 'comment'] });
+```
+
 # License
 
 [MIT](https://github.com/AnatoleLucet/get-directory/blob/master/LICENSE)
