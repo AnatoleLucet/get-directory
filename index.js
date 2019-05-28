@@ -3,10 +3,11 @@ const path = require('path');
 
 const initialConfig = {
   extensions: ['.js'],
+  blacklist: []
 };
 
 module.exports = (_module, config = initialConfig) => {
-  const { extensions } = { ...initialConfig, ...config },
+  const { extensions, blacklist } = { ...initialConfig, ...config },
     basedir = path.dirname(_module.filename);
 
   // This function will loop over the directory's tree.
@@ -16,14 +17,20 @@ module.exports = (_module, config = initialConfig) => {
       .readdirSync(path.join(basedir, dir), {
         withFileTypes: true
       })
-      .filter(
-        file =>
-          // If file is not a directory and as a valid extension.
-          (extensions.find(type => type === `.${file.name.split('.').pop()}`) &&
-            !file.isDirectory()) ||
-          // If file is a directory.
-          file.isDirectory()
-      );
+      .filter(file => {
+        // Return if file.name is in the blacklist.
+        if (blacklist.find(dlFile => dlFile === file.name)) return;
+
+        // Return if file is not a directory and don't have a valid extension.
+        if (
+          !extensions.find(type => type === `.${file.name.split('.').pop()}`) &&
+          !file.isDirectory()
+        )
+          return;
+
+        // Else return ture.
+        return true;
+      });
 
     // Return the final object.
     return files.reduce((acc, file) => {
