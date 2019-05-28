@@ -3,12 +3,16 @@ const path = require('path');
 
 const initialConfig = {
   extensions: ['.js'],
-  blacklist: []
+  blacklist: [],
+  path: ''
 };
 
 module.exports = (_module, config = initialConfig) => {
-  const { extensions, blacklist } = { ...initialConfig, ...config },
-    basedir = path.dirname(_module.filename);
+  const { extensions, blacklist, path: customPath } = {
+      ...initialConfig,
+      ...config
+    },
+    basedir = path.join(path.dirname(_module.filename), customPath);
 
   // This function will loop over the directory's tree.
   return (addFile = (dir = '') => {
