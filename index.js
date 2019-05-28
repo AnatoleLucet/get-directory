@@ -7,7 +7,7 @@ const initialConfig = {
   path: ''
 };
 
-module.exports = (_module, config = initialConfig) => {
+module.exports = (_module, config = {}) => {
   const { extensions, blacklist, path: customPath } = {
       ...initialConfig,
       ...config
