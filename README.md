@@ -6,6 +6,8 @@ Package that permit you to import every directory and files in a given path.
 
 ## Usage
 
+Simple exemple :
+
 - server.js
 - controllers/
   - index.js
@@ -23,7 +25,7 @@ Package that permit you to import every directory and files in a given path.
 ```Javascript
 // controllers/index.js
 
-module.exports = require('get-directory')(__dirname);
+module.exports = require('get-directory')(module); // give the global variable : 'module'
 ```
 
 ```Javascript
@@ -49,20 +51,18 @@ console.log(require('./controllers'));
  */
 ```
 
+**Do not try to import a file with this package if the file in question use and export it.**
+
 ---
 
 ## Options
 
-### Custom path
+You can give some options in an object.
+
+### Custom files extensions
 
 ```Javascript
-require('get-directory')('path of the folder (Required)');
-```
-
-### Custom files types
-
-```Javascript
-require('get-directory')(__dirname, ['.js', '.ts']); // default is ['.js']
+require('get-directory')(module, { extensions: ['.js', '.ts'] }); // default is ['.js']
 ```
 
 # License
