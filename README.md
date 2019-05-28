@@ -1,4 +1,4 @@
-# @anatole-lucet/get-directory
+# [@anatole-lucet/get-directory](https://www.npmjs.com/package/@anatole-lucet/get-directory)
 
 Package that permit you to import every directory and files in a given path.
 
@@ -68,13 +68,19 @@ You can give some options in an object.
 ### Custom files extensions
 
 ```Javascript
-require('get-directory')(module, { extensions: ['.js', '.ts'] }); // default is ['.js']
+require('@anatole-lucet/get-directory')(module, { extensions: ['.js', '.ts'] }); // default is ['.js']
 ```
 
 ### Blacklist
 
 ```Javascript
-require('get-directory')(module, { blacklist: ['register.js', 'comment'] });
+require('@anatole-lucet/get-directory')(module, { blacklist: ['register.js', 'comment'] });
+```
+
+### Custom Path
+
+```Javascript
+require('@anatole-lucet/get-directory')(module, { path: './auth' });
 ```
 
 # License
