@@ -33,7 +33,7 @@ module.exports = (_module, config = {}) => {
         )
           return;
 
-        // Else return ture.
+        // Else return true.
         return true;
       });
 

@@ -12,7 +12,31 @@ npm i -s @anatole-lucet/get-directory
 
 ## Usage
 
-Simple exemple :
+#### Simple usage :
+
+- index.js
+- auth/
+  - login.js
+  - register.js
+
+```Javascript
+// index.js
+
+const auth = require('@anatole-lucet/get-directory')(module); // You need to pass the 'module' global variable.
+// By default this will take every files & directories in './', see the options below for more informations.
+
+console.log(auth);
+/* {
+ *   auth: {
+ *     login: 'login s export',
+ *     register: 'register s export'
+ *   }
+ * }
+ */
+```
+
+
+#### Simple exemple :
 
 - server.js
 - controllers/
@@ -65,22 +89,22 @@ console.log(require('./controllers'));
 
 You can give some options in an object.
 
-### Custom files extensions
+#### Custom files extensions
 
 ```Javascript
-require('@anatole-lucet/get-directory')(module, { extensions: ['.js', '.ts'] }); // default is ['.js']
+require('@anatole-lucet/get-directory')(module, { extensions: ['.js', '.ts'] }); // Default is ['.js']
 ```
 
-### Blacklist
+#### Blacklist
 
 ```Javascript
 require('@anatole-lucet/get-directory')(module, { blacklist: ['register.js', 'comment'] });
 ```
 
-### Custom Path
+#### Custom Path
 
 ```Javascript
-require('@anatole-lucet/get-directory')(module, { path: './auth' });
+require('@anatole-lucet/get-directory')(module, { path: './auth' }); // Default is './'
 ```
 
 # License
