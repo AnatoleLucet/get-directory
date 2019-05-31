@@ -29,7 +29,7 @@ module.exports = (_module, config = {}) => {
           (!extensions.find(type => type === path.extname(file.name)) &&
             !file.isDirectory()) ||
           // Return if this is the file were this function as been called.
-          path.join(basedir, file.name) === _module.filename
+          path.join(basedir, dir, file.name) === _module.filename
         )
           return;
 
