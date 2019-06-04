@@ -19,7 +19,7 @@ npm i -s @anatole-lucet/get-directory
   - login.js
   - register.js
 
-```Javascript
+```js
 // index.js
 
 const auth = require('@anatole-lucet/get-directory')(module); // You need to pass the 'module' global variable.
@@ -34,7 +34,6 @@ console.log(auth);
  * }
  */
 ```
-
 
 #### Simple exemple :
 
@@ -52,17 +51,16 @@ console.log(auth);
       - addOne.js
       - addTwo.js
 
-```Javascript
+```js
 // controllers/index.js
 
 module.exports = require('@anatole-lucet/get-directory')(module);
 ```
 
-```Javascript
+```js
 // server.js
 
 const { auth, posts, comment } = require('./controllers');
-
 
 // Full object :
 
@@ -91,19 +89,21 @@ You can give some options in an object.
 
 #### Custom files extensions
 
-```Javascript
+```js
 require('@anatole-lucet/get-directory')(module, { extensions: ['.js', '.ts'] }); // Default is ['.js']
 ```
 
 #### Blacklist
 
-```Javascript
-require('@anatole-lucet/get-directory')(module, { blacklist: ['register.js', 'comment'] });
+```js
+require('@anatole-lucet/get-directory')(module, {
+  blacklist: ['register.js', 'comment']
+});
 ```
 
 #### Custom Path
 
-```Javascript
+```js
 require('@anatole-lucet/get-directory')(module, { path: './auth' }); // Default is './'
 ```
 

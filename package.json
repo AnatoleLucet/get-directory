@@ -17,7 +17,11 @@
     "import",
     "use",
     "path",
-    "read"
+    "read",
+    "get-directory",
+    "require-directory",
+    "import-directory",
+    "directory object"
   ],
   "author": "AnatoleLucet",
   "license": "MIT",
